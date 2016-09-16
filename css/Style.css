@@ -29,4 +29,8 @@
       height: 210px;
       margin: auto;
   }
- 
+/*--------------------------------------------------------------------------------*/
+.Title{
+  color: black;
+  font-family: "Homer Simpson";
+}

@@ -30,7 +30,7 @@ class RegisterController
 		$cliente->setnombre_Usuario($_REQUEST['nombre_Usuario']);
 		$cliente->setpasswordCliente($_REQUEST['passwordCliente']);
 		$stmt= $cliente->insert($cliente);
-		header("Refresh:0, URL=?controller=Register");
+		header("Refresh:0, URL=?controller=Login");
 		echo"
 			<script language='JavaScript'>
 				alert('Te registraste correctamente en el sistema, ahora puedes iniciar sesion');

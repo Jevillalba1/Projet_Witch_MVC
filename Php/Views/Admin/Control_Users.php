@@ -4,6 +4,7 @@
   {
     header("location:index.php");
   }
+
 ?>
 <link rel="stylesheet" type="text/css" href="css/Style.css">
 <nav class="navbar navbar-inverse">
@@ -14,11 +15,11 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="location:?controller=admin">Drogueria PPs</a>
+      <a class="navbar-brand" href="?controller=admin">Drogueria PPs</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="location:?controller=Admin"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+        <li><a href="?controller=Admin"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href=""><span class="glyphicon glyphicon-plus-sign"></span> Control de la página <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -52,17 +53,59 @@
     </div>
   </div>
 </nav>
-
 <div class="jumbotron text-center">
   <div class="row">
-    <a href="?controller=Admin"> 
-      <div class="col-sm-3">
-        <IMG SRC="\DrogueriaPPs\Img\Logo.png" alt="Logo Droguería PPs" height="90px" width="200px" />
-      </div>
-    </a>
-    <div class="col-sm-8">
-      <h1>Droguería PPs Bienvenidos</h1>
-      <h3>Todo lo que buscas en un solo lugar</h3>
+      <center><h1 class="Title">Gestión de clientes</h1></center>
     </div>
+  </div>
+</div>
+
+
+<div class="col-md-11 col-md-offset-1">
+  <div class="table-responsive">
+    <table class="tabla">
+    <header>
+      <tr>
+        <th><center>Identificación</center> </th>
+        <th><center>Nombres</center> </th>
+        <th><center>Apellidos</center> </th>
+        <th><center>Dirección</center> </th>
+        <th><center>Teléfono</center> </th>
+        <th><center>Correo</center> </th>
+        <th></th>
+        <th>
+          <form method="post" action="?controller=administrador&accion=Hola">
+            <input type="hidden" name="documento" value='.$key->documento.'>
+            <button class="btn btn-success"> <span class="glyphicon glyphicon-plus-sign"></span> Nuevo</button>
+          </form>
+        </th>
+      </tr>
+    </header>
+      <tr>
+        <?php foreach ($stmt as $key) {
+          echo 
+
+          ' <tr>
+            <td>'.$key->identificacionCliente.'</td>
+            <td>'.$key->nombreCliente.'</td>
+            <td>'.$key->apellidoCliente.'</td>
+            <td>'.$key->direccionCliente.'</td>
+            <td>'.$key->telefonoCliente.'</td>
+            <td>'.$key->correoCliente.'</td>
+            <td>
+            <form method="post" action="?controller=Admin&accion=delete">
+            <input type="hidden" name="identificacionCliente" value='.$key->identificacionCliente.'>
+            <button class="btn btn-info">Eliminar</button>
+            </td>
+            <td>
+            </form><form method="post" action="?controller=administrador&accion=CRUD">
+            <input type="hidden" name="documento" value='.$key->identificacionCliente.'>
+            <button class="btn btn-info">Editar</button>
+            </form></td>
+
+            </tr>';
+        } ?>
+      </tr>
+    </table>
   </div>
 </div>
