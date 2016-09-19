@@ -44,7 +44,7 @@
 <br>
 <br>
 <div class="row">
-  <div class="col-md-4 col-md-offset-4">
+  <div class="col-md-3 col-md-offset-4">
     <div class="panel panel-danger">
       <div class="panel-heading">Registrate, por favor llena todos los campos
       </div>

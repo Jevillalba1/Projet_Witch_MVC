@@ -150,5 +150,82 @@ class Admin extends Conexion
             return false;
         }
     }
+/*---------------------------------------------------------------*/	
+	public function edit_customer() 
+	{
+    	try 
+    	{
+    		$query="UPDATE cliente SET nombreCliente='".$this->nombreCliente."',apellidoCliente='".$this->apellidoCliente."',direccionCliente='".$this->direccionCliente."',telefonoCliente='".$this->telefonoCliente."',correoCliente='".$this->correoCliente."',nombre_Usuario='".$this->nombre_Usuario."',passwordCliente='".$this->passwordCliente."' WHERE identificacionCliente='".$this->identificacionCliente."'";
+    		$stmt= $this->model->prepare($query);
+    		$stmt->execute();
+    		return true;
+    	} 
+    	catch (PDOException $e) 
+    	{
+    	return false;
+    	}
+    }
+/*---------------------------------------------------------------*/	 
+	public function read_medicine() 
+	{
+    	try 
+    	{
+    		$query= "SELECT * FROM medicamento";
+
+	    	$stmt= $this->model->prepare($query);
+    		$stmt->execute();
+    		return $stmt->fetchAll(PDO::FETCH_OBJ);
+    	}
+    	catch (PDOException $e) 
+    	{
+    		return false;
+    	}   
+    }
+/*---------------------------------------------------------------*/
+	public function delete_medicine()
+    {
+        try 
+        {
+            $query="DELETE FROM medicamento WHERE codMedicamento='".$this->identificacionCliente."'"; 
+	        $stmt=$this->model->prepare($query);
+			$stmt->execute();
+            return true;
+        }
+        catch (Exception $e) 
+        {
+            return false;
+        }
+    }
+/*---------------------------------------------------------------*/
+public function insert_medicine() 
+	{	
+		try
+		{
+			$query="INSERT INTO medicamento (codMedicamento,nombreMedicamento,viaConsumo,precioUnitario,	Ubicacion,fkcodTipoMedicamento) VALUES (NULL,'".$this->nombreCliente."','".$this->apellidoCliente."','".$this->direccionCliente."','/uploads/".$this->telefonoCliente."','".$this->correoCliente."')";
+			$stmt=$this->model->prepare($query);
+			$stmt->execute();
+			return true;
+		}
+		catch (PDOException $e) 
+		{
+		return false;
+		}
+	}
+/*---------------------------------------------------------------*/
+	public function SelectMedicine() 
+	{
+    	try 
+		{
+			$query= "SELECT * FROM medicamento WHERE codMedicamento='".$this->identificacionCliente."'";
+
+    		$stmt= $this->model->prepare($query);
+			$stmt->execute();
+			return $stmt->fetch(PDO::FETCH_ASSOC);
+    	}
+    	catch (PDOException $e) 
+    	{
+    	return false;
+    	}	
+    }
 }
 ?>

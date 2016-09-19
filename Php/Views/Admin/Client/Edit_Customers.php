@@ -1,4 +1,4 @@
-<?php 
+<?php
   session_start();
   if ($_SESSION['Admin']=="" || $_SESSION['Admin']==null ) 
   {
@@ -14,16 +14,17 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="location:?controller=admin">Drogueria PPs</a>
+      <a class="navbar-brand" href="?controller=admin">Drogueria PPs</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="location:?controller=Admin"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+        <li><a href="?controller=Admin"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href=""><span class="glyphicon glyphicon-plus-sign"></span> Control de la página <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="?controller=Admin&accion=Control_Customers"><span class="glyphicon glyphicon-wrench"></span> Gestionar Clientes</a></li>
             <li><a href="?controller=Admin&accion=Control_Medicine"><span class="glyphicon glyphicon-wrench"></span> Gestionar Medicamentos</a></li>
+            <li><a href="/Proyecto/Pagina/Pagina/Analgesicos.php"><span class="glyphicon glyphicon-certificate"></span> Analgésicos</a></li>
             <li><a href="#"><span class="glyphicon glyphicon-certificate"></span> Antibióticos</a></li>
             <li><a href="#"><span class="glyphicon glyphicon-certificate"></span> Anticépticos</a></li>
             <li><a href="#"><span class="glyphicon glyphicon-certificate"></span> Laxantes</a></li>
@@ -52,17 +53,61 @@
     </div>
   </div>
 </nav>
-
 <div class="jumbotron text-center">
   <div class="row">
-    <a href="?controller=Admin"> 
-      <div class="col-sm-3">
-        <IMG SRC="\DrogueriaPPs\Img\Logo.png" alt="Logo Droguería PPs" height="90px" width="200px" />
+      <center><h1 class="Title">Actualización de cliente</h1></center>
+    </div>
+</div>
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+    <div class="panel panel-danger">
+      <div class="panel-heading">Actualización de datos
       </div>
-    </a>
-    <div class="col-sm-8">
-      <h1>Droguería PPs Bienvenidos</h1>
-      <h3>Todo lo que buscas en un solo lugar</h3>
+      <div class="panel-body">
+        <form method="post" action="?controller=Admin&accion=edit">
+          <div class="input-group col-xs-12">
+            <label for="identificacionCliente">N° de identificación:</label>
+            <input type="number" name="identificacionCliente" class="form-control" required value="<?php echo $stmt['identificacionCliente'];?>"> 
+          </div>
+          <br>
+          <div class="input-group col-xs-12">
+            <label for="nombreCliente">Nombre: </label>
+            <input type="text" name="nombreCliente" class="form-control" required value="<?php echo $stmt['nombreCliente'];?>">
+          </div>
+          <br>
+          <div class="input-group col-xs-12">
+            <label for="apellidoCliente">Apellido: </label>
+            <input type="text" name="apellidoCliente" class="form-control" required value="<?php echo $stmt['apellidoCliente'];?>">
+          </div>
+          <br>
+          <div class="input-group col-xs-12">
+            <label for="direccionCliente">Dirección: </label>
+            <input type="text" name="direccionCliente" class="form-control" required value="<?php echo $stmt['direccionCliente'];?>">
+          </div>
+          <br>
+          <div class="input-group col-xs-12">
+            <label for="telefonoCliente">Teléfono: </label>
+            <input type="number" name="telefonoCliente" class="form-control" required value="<?php echo $stmt['telefonoCliente'];?>"> 
+          </div>
+          <br>
+          <div class="input-group col-xs-12">
+            <label for="correoCliente">Correo electrónico: </label>
+            <input type="email" name="correoCliente" class="form-control" required value="<?php echo $stmt['correoCliente'];?>">
+          </div>
+          <br>
+          <div class="input-group col-xs-12">
+            <label for="nombre_Usuario">Nombre de usuario: </label>
+            <input type="text" name="nombre_Usuario" class="form-control" required value="<?php echo $stmt['nombre_Usuario'];?>">
+          </div>
+          <br>
+          <div class="input-group col-xs-12">
+            <label for="passwordCliente">Contraseña: </label>
+            <input type="text" name="passwordCliente" class="form-control" required value="<?php echo $stmt['passwordCliente'];?>">
+          </div>
+          <hr>
+          <button class="btn btn-success btn-block">Actualizar datos</button>
+        </form>
+      </div>
     </div>
   </div>
-</div>
+</div>  
