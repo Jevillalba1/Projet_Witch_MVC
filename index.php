@@ -17,4 +17,5 @@
 		$controller= new $controller;
 		call_user_func(array($controller,$accion));
 	}
+	echo("Ya hice una edición");
 ?>
